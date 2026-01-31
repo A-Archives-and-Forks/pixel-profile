@@ -60,7 +60,8 @@ githubStats.get('/', async (c) => {
 
     const result = await renderStats(stats, options)
 
-    return body(result)
+    return body(result.buffer as ArrayBuffer)
+    // return body(Uint8Array.from(result).buffer)
   } catch (err) {
     console.log(err)
 
